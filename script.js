@@ -72,12 +72,12 @@ createElements();
 
     function hideIncorrect () {
         setTimeout( () => {
-        $(".ico").hide("fast");
+        $(".ico").hide();
         for (var i = 0 ; i < correct.length; i++) {
            $(".ico:eq("+correct[i].firstIndex+")").show(); 
            $(".ico:eq("+correct[i].secondIndex+")").show();    
         }
-    } , 3500 );
+    } , 3000 );
     }
 
 
