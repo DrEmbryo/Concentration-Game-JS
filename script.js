@@ -71,18 +71,18 @@ createElements();
     }
 
     function hideIncorrect () {
+        $(".card").off();
         setTimeout( () => {
         $(".ico").hide();
         for (var i = 0 ; i < correct.length; i++) {
            $(".ico:eq("+correct[i].firstIndex+")").show(); 
            $(".ico:eq("+correct[i].secondIndex+")").show();    
         }
-    } , 3000 );
+        $(".card").on("click" , checkCard);
+    } , 1000 );
     }
 
-
-    //click hendler
-    $(".card").on("click" , function () {
+    function checkCard () {
         $(this).children("div").show();
         if (counter == 0) {
             clickedIndex1 = $(this).index();
@@ -105,5 +105,7 @@ createElements();
                 counter = 0;
             }
         }
+    }
 
-    });
+    //click hendler
+    $(".card").on("click" , checkCard);
